@@ -1,3 +1,4 @@
+import { montserrat } from '@/fonts'
 import '@/styles/globals.css'
 
 export const metadata = {
@@ -12,7 +13,7 @@ const RootLayout = ({
 }): React.ReactElement => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body style={montserrat.style}>{children}</body>
     </html>
   )
 }

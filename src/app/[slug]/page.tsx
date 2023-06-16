@@ -1,4 +1,5 @@
-import Cover from '@/components/Cover'
+'use client'
+
 import MotivationLetter from '@/components/MotivationLetter'
 import Image from 'next/image'
 import { monteCarlo } from '@/fonts'
@@ -9,15 +10,26 @@ import Countdown from '@/components/Countdown'
 import Place from '@/components/Place'
 import Comment from '@/components/Comment'
 import AttendanceForm from '@/components/AttendanceForm'
+import { useEffect } from 'react'
 
 interface InvitationProps {
   params: { slug: string }
 }
 
 const Invitation = ({ params }: InvitationProps): React.ReactElement => {
+  useEffect(() => {
+    const audio = new Audio(
+      'https://res.cloudinary.com/dk8so2dgw/video/upload/v1686580761/sample/n7oiqea4clgquovgnzhz.mp3'
+    )
+    audio.volume = 0.3
+    audio.loop = true
+    audio.play().catch(error => {
+      console.error(error)
+    })
+  }, [])
+
   return (
     <>
-      <Cover />
       <div className='relative h-screen -z-10'>
         <Image
           src='/images/landing-image.png'

@@ -31,7 +31,7 @@ const OpenInvitation = ({
         Kepada Yth. <br /> Bapak/Ibu/Saudara/i
       </div>
       <div className='pb-20 font-bold text-white text-3 xl capitalize'>
-        {searchParams.name.toLowerCase()}
+        {searchParams.name}
       </div>
       <Link href={`/${params.slug}`}>
         <Button title='Buka Undangan' />

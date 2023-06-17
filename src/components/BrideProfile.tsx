@@ -2,13 +2,22 @@ import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 import { monteCarlo } from '@/fonts'
 
+import { motion } from 'framer-motion'
+import { zoomInVariant } from '@/utils/variant'
+
 interface BrideProfileProps {
   className?: string
 }
 
 const BrideProfile = ({ className }: BrideProfileProps): React.ReactElement => {
   return (
-    <div className={twMerge('text-sage', className)}>
+    <motion.div
+      className={twMerge('text-sage', className)}
+      variants={zoomInVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+    >
       <div
         style={{
           backgroundImage: 'url("/images/male-bride.jpg")'
@@ -40,7 +49,7 @@ const BrideProfile = ({ className }: BrideProfileProps): React.ReactElement => {
           <p>Ibu Situ O</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 export default BrideProfile

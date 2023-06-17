@@ -3,9 +3,18 @@ import { faBell, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faDesktop } from '@fortawesome/free-solid-svg-icons'
 import Button from './Button'
 
+import { motion } from 'framer-motion'
+import { zoomInVariant } from '@/utils/variant'
+
 const Countdown = (): React.ReactElement => {
   return (
-    <div className='my-9 -mx-5 text-center'>
+    <motion.div
+      className='my-9 -mx-5 text-center'
+      variants={zoomInVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+    >
       <h2 style={monteCarlo.style} className='font-medium text-3xl mb-4'>
         The Event Will be Held
       </h2>
@@ -48,7 +57,7 @@ const Countdown = (): React.ReactElement => {
           className='bg-sky-400 border-0 text-xs w-56 rounded-full'
         />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

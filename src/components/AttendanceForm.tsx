@@ -3,9 +3,18 @@
 import React from 'react'
 import Button from './Button'
 
+import { motion } from 'framer-motion'
+import { zoomInVariant } from '@/utils/variant'
+
 const AttendanceForm = (): React.ReactElement => {
   return (
-    <div className='bg-sage-400/20 rounded-xl shadow-3xl px-4 py-3'>
+    <motion.div
+      className='bg-sage-400/20 rounded-xl shadow-3xl px-4 py-3'
+      variants={zoomInVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+    >
       <h2 className='font-medium text-sage-500 text-sm mb-3'>Send a wish</h2>
       <form action='#' className='text-center'>
         <input
@@ -27,7 +36,7 @@ const AttendanceForm = (): React.ReactElement => {
           className='rounded-full bg-sage-500 border-none text-2xs px-5 py-1'
         />
       </form>
-    </div>
+    </motion.div>
   )
 }
 

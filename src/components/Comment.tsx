@@ -3,6 +3,9 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
+import { motion } from 'framer-motion'
+import { zoomInVariant } from '@/utils/variant'
+
 interface CommentProps {
   name: string
   address: string
@@ -15,7 +18,13 @@ const Comment = ({
   comment
 }: CommentProps): React.ReactElement => {
   return (
-    <div className='flex gap-5 text-3xs mb-4'>
+    <motion.div
+      className='flex gap-5 text-3xs mb-4'
+      variants={zoomInVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+    >
       <div className='w-10 h-10 bg-neutral-400 flex items-center justify-center text-xs rounded-full text-black font-medium'>
         ACR
       </div>
@@ -30,7 +39,7 @@ const Comment = ({
           <p>{comment}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

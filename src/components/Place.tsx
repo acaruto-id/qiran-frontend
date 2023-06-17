@@ -7,6 +7,8 @@ import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { convertTime, convertDate } from '@/utils/date'
 
+import { motion } from 'framer-motion'
+import { zoomInVariant } from '@/utils/variant'
 interface PlaceProps {
   title: string
   dateStart: Date
@@ -21,7 +23,13 @@ const Place = ({
   address
 }: PlaceProps): React.ReactElement => {
   return (
-    <div className='text-center mb-7'>
+    <motion.div
+      className='text-center mb-7'
+      variants={zoomInVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true }}
+    >
       <h2 style={monteCarlo.style} className='text-4xl font-medium mb-2 '>
         {title}
       </h2>
@@ -43,7 +51,7 @@ const Place = ({
         icon={faLocationDot}
         className='rounded-full border-sage text-sage text-xs'
       />
-    </div>
+    </motion.div>
   )
 }
 
